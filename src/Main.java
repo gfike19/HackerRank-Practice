@@ -1,11 +1,11 @@
 import java.security.SecureRandom;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         List<List<Integer>> arr = generateMatrix();
+        System.out.println("Current matrix: ");
         for(int i = 0; i < arr.size() - 1; i ++){
             List<Integer> currentArr = arr.get(i);
             for(int j = 0; j < currentArr.size() - 1; j++){
@@ -36,17 +36,17 @@ public class Main {
     }
 
     public static int diagonalDifference(List<List<Integer>> arr) {
-        // Write your code here
-        int size = arr.get(0).remove(0);
-        int rtl = arr.get(0).get(size - 1);
+        // The first line contains a single integer, , the number of rows and columns in the square matrix 
+        int rtl = arr.get(0).get(6);
         int ltr = arr.get(0).get(0);
 
-        int col = size - 1;
+        int col = 6;
         int row = 1;
 
         System.out.println("Right to left:\n");
         while(col != 1) {
-//          System.out.print()
+          System.out.print("Current row: " + row + "\n");
+          System.out.print("Current column: " + col + "\n");
             rtl += arr.get(row).get(col);
             col --;
             row ++;
@@ -54,13 +54,14 @@ public class Main {
 
         row = 1;
 
-        while(col != size) {
+        while(col != 6) {
+            System.out.print("Current row: " + row + "\n");
+            System.out.print("Current column: " + col + "\n");
             ltr += arr.get(row).get(col);
             col ++;
             row --;
         }
 
-        int result = ltr + rtl;
-        return result;
+        return ltr + rtl;
     }
 }
