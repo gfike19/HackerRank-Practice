@@ -6,26 +6,29 @@ public class Main {
     public static void main(String[] args) {
         List<List<Integer>> arr = generateMatrix();
         System.out.println("Current matrix: ");
-        for(int i = 0; i < arr.size() - 1; i ++){
+        for(int i = 0; i < arr.size(); i ++){
             List<Integer> currentArr = arr.get(i);
-            for(int j = 0; j < currentArr.size() - 1; j++){
+            for(int j = 0; j < currentArr.size(); j++){
                 System.out.print(currentArr.get(j) + " ");
             }
             System.out.print("\n");
         }
         diagonalDifference(arr);
-//        System.out.print(diagonalDifference(arr));
+//        System.out.println("Sum left diagnol elements: " + diagonalDifference(arr));
     }
 
     public static List<List<Integer>> generateMatrix () {
         SecureRandom sr = new SecureRandom();
         int upperBound = 100;
-
+        int size = getRandomNumber(3, 10);
+        List<Integer> sizeArr = new ArrayList<>();
+        sizeArr.add(size);
         List<List<Integer>> matrix = new ArrayList<>();
+        matrix.add(sizeArr);
 
-        for(int i = 0; i < 6; i++) {
+        for(int i = 0; i < size; i++) {
            List<Integer> arr = new ArrayList<>();
-           for(int j = 0; j < 6; j++) {
+           for(int j = 0; j < size; j++) {
                int rNum = sr.nextInt(upperBound);
                arr.add(rNum);
            }
@@ -36,32 +39,24 @@ public class Main {
     }
 
     public static int diagonalDifference(List<List<Integer>> arr) {
-        // The first line contains a single integer, , the number of rows and columns in the square matrix 
-        int rtl = arr.get(0).get(6);
-        int ltr = arr.get(0).get(0);
+        // The first line contains a single integer, , the number of rows and columns in the square matrix
+        int size = arr.remove(0).get(0);
+        int rtl = 0;
+        int ltr = 0;
 
-        int col = 6;
-        int row = 1;
-
-        System.out.println("Right to left:\n");
-        while(col != 1) {
-          System.out.print("Current row: " + row + "\n");
-          System.out.print("Current column: " + col + "\n");
-            rtl += arr.get(row).get(col);
-            col --;
-            row ++;
+        for(int i = 0; i < size; i++) {
+            ltr += arr.get(i).get(i);
         }
 
-        row = 1;
-
-        while(col != 6) {
-            System.out.print("Current row: " + row + "\n");
-            System.out.print("Current column: " + col + "\n");
-            ltr += arr.get(row).get(col);
-            col ++;
-            row --;
+        for(int i = size - 1; i > 0; i--) {
+            System.out.println("Current element: " + arr.get(i).get(i));
+            rtl += arr.get(i).get(i);
         }
 
         return ltr + rtl;
+    }
+
+    public static int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
     }
 }
