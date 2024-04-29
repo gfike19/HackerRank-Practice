@@ -13,7 +13,8 @@ public class Main {
             }
             System.out.print("\n");
         }
-        diagonalDifference(arr);
+
+        System.out.println(diagonalDifference(arr));
 //        System.out.println("Sum left diagnol elements: " + diagonalDifference(arr));
     }
 
@@ -48,8 +49,7 @@ public class Main {
             ltr += arr.get(i).get(i);
         }
 
-        for(int i = size - 1; i > 0; i--) {
-            System.out.println("Current element: " + arr.get(i).get(i));
+        for(int i = size - 1; i >= 0; i--) {
             rtl += arr.get(i).get(i);
         }
 
