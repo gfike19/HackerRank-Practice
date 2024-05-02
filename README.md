@@ -7,3 +7,7 @@
 - made branch for staircase problem.
 - ran tests to see if Java can turn number * " " into multiple spaces which would make problem easier.
 
+## 5/2/2024 ##
+- created branch for staircase problem.
+- started work on solution.
+- current code doesn't work.
