@@ -4,20 +4,17 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int totalCharCount = 4;
-        int starCount = 1;
-        int spaceCount = 3;
-
-        while(starCount != 4) {
-            for(int i = 0; i <= spaceCount;i ++) {
-                System.out.print(' ');
-            }
-
-            for(int i = 0; i <= starCount; i++) {
-                System.out.print('*');
-            }
-            System.out.print('\n');
-            starCount--;
-        }
+        // how create numbers with upper and lower limit
+        // int randomNum = min + (int)(Math.random() * ((max – min) + 1));
+        int min = 3;
+        int max = 100;
+        int n = min + (int)(Math.random() * ((max - min) + 1));
+        staircase(n);
+    }
+    public static void staircase(int n) {
+        int spaceNum = n - 1;
+        int starNum = n - spaceNum;
+        System.out.println("Space num is: " + spaceNum);
+        System.out.println("Star num is: " + starNum);
     }
 }

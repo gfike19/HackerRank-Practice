@@ -11,3 +11,8 @@
 - created branch for staircase problem.
 - started work on solution.
 - current code doesn't work.
+
+## 5/3/2024 ##
+- added function specifically for running stair case problem.
+- added random number generator to make value to pass to function.
+- tried a few things. Nothing works at present. Need remember to mark down what works and what doesn't.
