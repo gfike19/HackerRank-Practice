@@ -16,3 +16,7 @@
 - added function specifically for running stair case problem.
 - added random number generator to make value to pass to function.
 - tried a few things. Nothing works at present. Need remember to mark down what works and what doesn't.
+
+## 5/5/2024 ##
+= got staircase problem working but doesn't match expected output from HackerRank.
+Further troubleshooting needed.
